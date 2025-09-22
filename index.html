@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Data Science - Análise Climática SP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Projeto de Análise de Dados Climáticos</h1>
+            <p>Análise exploratória de dados meteorológicos de São Paulo (2010-2020) usando Python, SQL e técnicas de Data Science</p>
+            <a href="#projeto" class="btn">Ver Projeto</a>
+            <a href="#linkedin" class="btn btn-outline">Postagem LinkedIn</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Projeto Section -->
+        <section id="projeto" class="section">
+            <h2 class="section-title">📊 Sobre o Projeto</h2>
+            <p>Este projeto tem como objetivo analisar dados meteorológicos diários de São Paulo para identificar padrões, tendências e correlações climáticas ao longo da última década.</p>
+            
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">Análise Estatística</span>
+                <span class="skill-tag">Visualização de Dados</span>
+                <span class="skill-tag">Machine Learning</span>
+            </div>
+
+            <h3>📈 Temperatura Média Mensal em São Paulo (2010-2020)</h3>
+            <div class="chart-container">
+                <canvas id="tempChart"></canvas>
+            </div>
+
+            <h3>💧 Precipitação Acumulada por Ano</h3>
+            <div class="chart-container">
+                <canvas id="precipChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section class="section">
+            <h2 class="section-title">🔍 Insights Descobertos</h2>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <h3>📈 Tendência de Aquecimento</h3>
+                    <p>Aumento de 0.8°C na temperatura média anual ao longo da década, com verões mais intensos e prolongados.</p>
+                </div>
+                <div class="insight-card">
+                    <h3>🌧️ Padrão de Chuvas</h3>
+                    <p>65% das chuvas anuais concentram-se de outubro a março, com aumento na frequência de eventos extremos.</p>
+                </div>
+                <div class="insight-card">
+                    <h3>🔗 Correlações Climáticas</h3>
+                    <p>Forte correlação negativa (-0.72) entre temperatura e umidade relativa do ar nos meses de inverno.</p>
+                </div>
+            </div>
+
+            <h3>🔄 Correlação entre Variáveis Climáticas</h3>
+            <div class="chart-container">
+                <canvas id="correlationChart"></canvas>
+            </div>
+        </section>
+
+        <!-- SQL Section -->
+        <section class="section">
+            <h2 class="section-title">💾 Análise com SQL</h2>
+            <p>Para este projeto, os dados foram tratados como se estivessem armazenados em um banco SQL. Abaixo estão algumas consultas utilizadas:</p>
+            
+            <h3>Consulta para Temperatura Média Mensal</h3>
+            <div class="code-block">
+                <pre><code>
+SELECT 
+    YEAR(data) AS ano,
+    MONTH(data) AS mes,
+    AVG(temperatura_media) AS temp_media
+FROM clima_sao_paulo
+WHERE data BETWEEN '2010-01-01' AND '2020-12-31'
+GROUP BY YEAR(data), MONTH(data)
+ORDER BY ano, mes;
+                </code></pre>
+            </div>
+            
+            <h3>Consulta para Análise de Correlação</h3>
+            <div class="code-block">
+                <pre><code>
+SELECT 
+    CORR(temperatura_media, umidade) AS correlacao_temp_umidade,
+    CORR(temperatura_media, precipitacao) AS correlacao_temp_chuva
+FROM clima_sao_paulo
+WHERE data BETWEEN '2010-01-01' AND '2020-12-31';
+                </code></pre>
+            </div>
+        </section>
+
+        <!-- LinkedIn Post Section -->
+        <section id="linkedin" class="linkedin-post">
+            <div class="post-header">
+                <div class="avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="post-info">
+                    <h3>Seu Nome</h3>
+                    <p>Data Analyst | Data Scientist | SQL | Python</p>
+                    <p>1 dia atrás • <i class="fas fa-globe-americas"></i></p>
+                </div>
+            </div>
+            
+            <div class="post-content">
+                <p>🎯 Acabei de concluir um projeto de análise de dados climáticos que gostaria de compartilhar!</p>
+                
+                <p>📊 <strong>Análise de Dados Meteorológicos de São Paulo (2010-2020)</strong></p>
+                
+                <p>Este projeto me permitiu explorar e aplicar diversas habilidades técnicas:</p>
+                
+                <ul>
+                    <li>✅ <strong>Python</strong> e <strong>Pandas</strong> para limpeza e transformação de dados</li>
+                    <li>✅ <strong>SQL</strong> para consultas complexas e agregações</li>
+                    <li>✅ <strong>Visualização de dados</strong> com Matplotlib/Seaborn</li>
+                    <li>✅ <strong>Análise estatística</strong> para identificar correlações e tendências</li>
+                </ul>
+                
+                <p>🔍 <strong>Principais descobertas:</strong></p>
+                <ul>
+                    <li>➡️ Aumento de 0.8°C na temperatura média em 10 anos</li>
+                    <li>➡️ Padrão sazonal de chuvas mais intenso no verão</li>
+                    <li>➡️ Forte correlação negativa entre temperatura e umidade no inverno</li>
+                </ul>
+                
+                <p>💡 Este projeto demonstra minha capacidade de transformar dados brutos em insights acionáveis, uma habilidade crucial para qualquer posição em análise de dados.</p>
+                
+                <p>Confira os detalhes completos do projeto no link abaixo 👇</p>
+                
+                <div class="hashtags">
+                    <span class="hashtag">#DataScience</span>
+                    <span class="hashtag">#Python</span>
+                    <span class="hashtag">#SQL</span>
+                    <span class="hashtag">#AnaliseDeDados</span>
+                    <span class="hashtag">#DataAnalysis</span>
+                    <span class="hashtag">#CienciaDeDados</span>
+                    <span class="hashtag">#Portfolio</span>
+                    <span class="hashtag">#DataAnalyst</span>
+                </div>
+            </div>
+            
+            <div class="post-stats">
+                <span>👍 128 • 💬 24 • 🔄 15</span>
+                <span>💡 4.2K visualizações</span>
+            </div>
+        </section>
+
+        <!-- Conclusão -->
+        <section class="section">
+            <h2 class="section-title">🎯 Conclusões e Aplicações Práticas</h2>
+            <p>Este projeto não apenas demonstra habilidades técnicas, mas também a capacidade de:</p>
+            <ul>
+                <li>🔬 Realizar análise exploratória de dados complexos</li>
+                <li>📈 Identificar tendências e padrões relevantes</li>
+                <li>💡 Traduzir insights técnicos em implicações práticas</li>
+                <li>📊 Comunicar resultados de forma clara e visual</li>
+            </ul>
+            
+            <p>As habilidades demonstradas aqui são diretamente aplicáveis a posições de:</p>
+            <div class="skills">
+                <span class="skill-tag">Data Analyst</span>
+                <span class="skill-tag">Business Intelligence</span>
+                <span class="skill-tag">Data Scientist</span>
+                <span class="skill-tag">Analytics Engineer</span>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Projeto desenvolvido para demonstração de habilidades em Data Science • Entre em contato para oportunidades</p>
+            <p>📧 email@exemplo.com • 🔗 linkedin.com/in/seuperfil • 💼 github.com/seuusuario</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
